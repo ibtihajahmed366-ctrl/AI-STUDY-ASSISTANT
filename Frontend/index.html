@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Study Assistant — Study Smarter with AI</title>
+<meta name="description" content="Upload your notes, lectures or presentations and turn them into summaries, questions, MCQs, quizzes and flashcards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <button class="brand" data-nav="landing" type="button" aria-label="AI Study Assistant — go to home">
+      <!-- <span class="brand-mark"> -->
+        <!-- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Z"/><path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5v-13Z"/></svg>
+      </span> -->
+      <span class="brand-text">AI Study Assistant</span>
+      <!-- <span class="brand-badge">Preview</span> -->
+    </button>
+    <nav class="main-nav">
+      <button class="nav-link is-current" data-nav="landing">Home</button>
+      <button class="nav-link" data-nav="upload">Upload Material</button>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.5 12H2.1M21.9 12h-2.4M5.8 5.8l1.7 1.7M16.5 16.5l1.7 1.7M18.2 5.8l-1.7 1.7M7.5 16.5l-1.7 1.7"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="btn btn-primary btn-sm header-upload-btn" data-nav="upload" aria-label="Upload your material">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+        <span class="btn-label">Upload Your Material</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== LANDING ===== -->
+  <section class="view is-active" id="view-landing">
+    <div class="wrap hero">
+      <div class="hero-inner">
+        <div class="hero-rule"></div>
+        <div>
+          <p class="hero-eyebrow">An AI-Powered Study Companion</p>
+          <h1>Study Smarter with AI</h1>
+          <p class="lede">Upload your notes, lectures or presentations and turn them into summaries, questions, MCQs, quizzes and flashcards.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-nav="upload">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+              Upload Your Material
+            </button>
+          </div>
+          <p class="hero-formats">Supports <span>PDF · PPT · PPTX · DOC · DOCX · TXT · JPG · PNG</span></p>
+
+          <p class="flow-label">How it works</p>
+          <div class="hero-flow">
+            <div class="hero-flow-step">
+              <div class="hero-flow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17a3.7 3.7 0 0 1-.8-7.3 4.8 4.8 0 0 1 9.3-1.6A3.8 3.8 0 0 1 16.5 17H7Z"/><path d="M12 11v5.5M9.7 13.2 12 11l2.3 2.2"/></svg></div>
+              <div class="num">01</div><p>Upload your material</p>
+            </div>
+            <div class="hero-flow-step">
+              <div class="hero-flow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.5 6.5l2 2M15.5 15.5l2 2M17.5 6.5l-2 2M8.5 15.5l-2 2"/><circle cx="12" cy="12" r="2.4"/></svg></div>
+              <div class="num">02</div><p>AI reads and understands it</p>
+            </div>
+            <div class="hero-flow-step">
+              <div class="hero-flow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2.5"/><path d="M8.5 12.3l2.2 2.2 4.8-4.8"/></svg></div>
+              <div class="num">03</div><p>Choose what to generate</p>
+            </div>
+            <div class="hero-flow-step">
+              <div class="hero-flow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.8C4 4.8 4.8 4 5.8 4H11v16H5.8A1.8 1.8 0 0 1 4 18.2V5.8Z"/><path d="M20 5.8c0-1-.8-1.8-1.8-1.8H13v16h5.2c1 0 1.8-.8 1.8-1.8V5.8Z"/></svg></div>
+              <div class="num">04</div><p>Study with your results</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap features">
+      <div class="features-head">
+        <h2>Everything you need to study smarter</h2>
+        <p>One upload, six ways to review it — built around how students actually revise.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 4 8l8 4 8-4-8-4Z"/><path d="M4 12l8 4 8-4"/><path d="M4 16l8 4 8-4"/></svg></div>
+          <h3>Works with your existing files</h3>
+          <p>PDF, PPT, PPTX, DOC, DOCX, TXT, JPG and PNG — upload lecture slides, scanned notes or typed documents as they are.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.2"/><rect x="13" y="4" width="7" height="7" rx="1.2"/><rect x="4" y="13" width="7" height="7" rx="1.2"/><rect x="13" y="13" width="7" height="7" rx="1.2"/></svg></div>
+          <h3>Six ways to study one file</h3>
+          <p>Summaries, important questions, MCQs, an interactive quiz, flashcards and key points — all generated from the same material.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7.5 11 12 15.5 16.5 11"/><path d="M4.5 17v1.5A1.5 1.5 0 0 0 6 20h12a1.5 1.5 0 0 0 1.5-1.5V17"/></svg></div>
+          <h3>Yours to keep</h3>
+          <p>Copy, download or print any result, or regenerate it whenever you want a fresh pass.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== UPLOAD ===== -->
+  <section class="view" id="view-upload">
+    <div class="wrap section">
+      <div class="section-head">
+        <h2>Upload your study material</h2>
+        <p>Drag &amp; drop your file here or browse from your device.</p>
+      </div>
+
+      <div class="dropzone" id="dropzone">
+        <div class="dropzone-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.2 4.2 0 0 1-1-8.3 5.5 5.5 0 0 1 10.7-1.8A4.3 4.3 0 0 1 17 18H7Z"/><path d="M12 11v6.5M9.3 13.7 12 11l2.7 2.7"/></svg>
+        </div>
+        <h3>Drop your file here</h3>
+        <p>or browse from your device</p>
+        <label class="btn btn-secondary dropzone-browse" id="browse-btn" for="file-input">Browse Files</label>
+        <input type="file" id="file-input" accept=".pdf,.ppt,.pptx,.doc,.docx,.txt,.jpg,.jpeg,.png">
+        <div class="dropzone-meta">
+          <span><strong>Formats:</strong> PDF, PPT, PPTX, DOC, DOCX, TXT, JPG, PNG</span>
+          <span><strong>Max size:</strong> 25 MB</span>
+        </div>
+      </div>
+
+      <div class="file-card" id="file-card" style="display:none">
+        <div class="file-card-icon" id="file-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8Z"/><path d="M14 3v5h5"/></svg>
+        </div>
+        <div class="file-card-body">
+          <div class="file-card-name" id="file-card-name">—</div>
+          <div class="file-card-meta" id="file-card-meta">—</div>
+          <div class="file-card-progress"><div class="file-card-progress-bar" id="file-card-progress-bar"></div></div>
+        </div>
+        <button class="file-card-remove" id="file-card-remove" aria-label="Remove file">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+
+      <div class="upload-cta">
+        <button class="btn btn-primary" id="analyze-btn" disabled>Analyze Material</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESSING ===== -->
+  <section class="view" id="view-processing">
+    <div class="wrap processing">
+      <div class="processing-ring"></div>
+      <h2>Analyzing your study material…</h2>
+      <ul class="processing-checklist" id="processing-checklist">
+        <li data-step="0"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>Reading your material</li>
+        <li data-step="1"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>Understanding the content</li>
+        <li data-step="2"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>Identifying important topics</li>
+        <li data-step="3"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>Preparing your study options</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== READY ===== -->
+  <section class="view" id="view-ready">
+    <div class="wrap processing-done">
+      <div class="done-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <h2>Your study material is ready!</h2>
+      <p>Choose what you'd like to generate from it.</p>
+      <button class="btn btn-primary" id="ready-continue-btn">Continue</button>
+    </div>
+  </section>
+
+  <!-- ===== STUDY OPTIONS ===== -->
+  <section class="view" id="view-options">
+    <div class="wrap section">
+      <div class="section-head">
+        <h2>What would you like to generate?</h2>
+        <p>Pick a study format below. You can come back and try another anytime.</p>
+      </div>
+      <div class="options-grid">
+
+        <button class="option-card" data-feature="summary">
+          <div class="option-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14v16H5z"/><path d="M8 9h8M8 12.5h8M8 16h5"/></svg></div>
+          <h3>Summary</h3>
+          <p>Generate a clear summary of the uploaded material.</p>
+          <span class="go">Generate summary</span>
+        </button>
+
+        <button class="option-card" data-feature="questions">
+          <div class="option-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9A1.5 1.5 0 0 1 18.5 16H10l-4 4v-4H5.5A1.5 1.5 0 0 1 4 14.5Z"/><path d="M10 9.3a2 2 0 1 1 2.6 1.9c-.6.2-1 .7-1 1.4v.2"/><circle cx="11.6" cy="14.9" r=".2" fill="currentColor"/></svg></div>
+          <h3>Important Questions</h3>
+          <p>Generate important questions based on the uploaded material.</p>
+          <span class="go">Generate questions</span>
+        </button>
+
+        <button class="option-card" data-feature="mcq">
+          <div class="option-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="4.5" height="4.5" rx="1"/><path d="M5.3 7.2l.9.9 1.6-1.7"/><rect x="4" y="14.5" width="4.5" height="4.5" rx="1"/><path d="M11 6.5h9M11 16.8h9"/></svg></div>
+          <h3>MCQs</h3>
+          <p>Generate multiple-choice questions with four options and answers.</p>
+          <span class="go">Generate MCQs</span>
+        </button>
+
+        <button class="option-card" data-feature="quiz">
+          <div class="option-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor"/></svg></div>
+          <h3>Quiz</h3>
+          <p>Create an interactive quiz from the uploaded material.</p>
+          <span class="go">Start quiz</span>
+        </button>
+
+        <button class="option-card" data-feature="flashcards">
+          <div class="option-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="7" width="13" height="9.5" rx="1.4" transform="rotate(-6 13 11.75)"/><rect x="4.5" y="8.5" width="13" height="9.5" rx="1.4" fill="var(--bg-surface)"/></svg></div>
+          <h3>Flashcards</h3>
+          <p>Generate question-and-answer flashcards for revision.</p>
+          <span class="go">Generate flashcards</span>
+        </button>
+
+        <button class="option-card" data-feature="keypoints">
+          <div class="option-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2 4.2 4.6.6-3.3 3.3.8 4.6-4.1-2.2-4.1 2.2.8-4.6-3.3-3.3 4.6-.6Z"/></svg></div>
+          <h3>Key Points</h3>
+          <p>Extract the most important points from the uploaded material.</p>
+          <span class="go">Extract key points</span>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GENERATING (transient) ===== -->
+  <section class="view" id="view-generating">
+    <div class="wrap processing">
+      <div class="processing-ring"></div>
+      <h2 id="generating-label">AI is generating your Summary…</h2>
+    </div>
+  </section>
+
+  <!-- ===== RESULT: SUMMARY ===== -->
+  <section class="view" id="view-result-summary">
+    <div class="wrap section">
+      <div class="result-header">
+        <div>
+          <h2 id="summary-title">Summary</h2>
+          <p>A structured overview of your uploaded material.</p>
+        </div>
+        <div class="result-controls" data-feature-controls="summary"></div>
+      </div>
+      <div class="result-body" id="summary-content"></div>
+    </div>
+  </section>
+
+  <!-- ===== RESULT: IMPORTANT QUESTIONS ===== -->
+  <section class="view" id="view-result-questions">
+    <div class="wrap section">
+      <div class="result-header">
+        <div>
+          <h2>Important Questions</h2>
+          <p>Questions worth reviewing before your exam.</p>
+        </div>
+        <div class="result-controls" data-feature-controls="questions"></div>
+      </div>
+      <ul class="q-list result-body" id="questions-list"></ul>
+    </div>
+  </section>
+
+  <!-- ===== RESULT: MCQS ===== -->
+  <section class="view" id="view-result-mcq">
+    <div class="wrap section">
+      <div class="result-header">
+        <div>
+          <h2>Multiple-Choice Questions</h2>
+          <p>Test your recall — reveal each answer when you're ready.</p>
+        </div>
+        <div class="result-controls" data-feature-controls="mcq"></div>
+      </div>
+      <div class="mcq-list result-body" id="mcq-list"></div>
+    </div>
+  </section>
+
+  <!-- ===== RESULT: QUIZ ===== -->
+  <section class="view" id="view-result-quiz">
+    <div class="wrap section">
+      <div class="result-header">
+        <div>
+          <h2>Quiz</h2>
+          <p>Answer each question — your score appears at the end.</p>
+        </div>
+        <div class="result-controls" data-feature-controls="quiz"></div>
+      </div>
+      <div id="quiz-container"></div>
+    </div>
+  </section>
+
+  <!-- ===== RESULT: FLASHCARDS ===== -->
+  <section class="view" id="view-result-flashcards">
+    <div class="wrap section">
+      <div class="result-header">
+        <div>
+          <h2>Flashcards</h2>
+          <p>Tap a card to flip it, then move to the next.</p>
+        </div>
+        <div class="result-controls" data-feature-controls="flashcards"></div>
+      </div>
+      <div id="flashcards-container"></div>
+    </div>
+  </section>
+
+  <!-- ===== RESULT: KEY POINTS ===== -->
+  <section class="view" id="view-result-keypoints">
+    <div class="wrap section">
+      <div class="result-header">
+        <div>
+          <h2>Key Points</h2>
+          <p>The most important points, extracted for quick review.</p>
+        </div>
+        <div class="result-controls" data-feature-controls="keypoints"></div>
+      </div>
+      <div class="keypoints-list result-body" id="keypoints-list"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <!-- <span class="footer-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Z"/><path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5v-13Z"/></svg>
+      </span> -->
+      <div>
+        <p class="footer-name">Study Smarter Learn Better</p>
+        <p class="footer-tagline">Turning study material into summaries, quizzes and flashcards.</p>
+      </div>
+    </div>
+    <nav class="footer-links">
+      <button data-nav="landing" type="button">Home</button>
+      <button data-nav="upload" type="button">Upload Material</button>
+    </nav>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>Transform your study materials into clear summaries, practice questions, and personalized learning resources.</p>
+  </div>
+</footer>
+
+<!-- Reusable control-bar template (copy / download / print / regenerate / back) -->
+<template id="controls-template">
+  <button class="btn btn-secondary btn-sm" data-action="copy">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8.5" y="8.5" width="11" height="11" rx="1.4"/><path d="M15.5 8.5V6a1.4 1.4 0 0 0-1.4-1.4H6A1.4 1.4 0 0 0 4.6 6v8.1A1.4 1.4 0 0 0 6 15.5h2.5"/></svg>
+    Copy
+  </button>
+  <button class="btn btn-secondary btn-sm" data-action="download">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7.5 11 12 15.5 16.5 11"/><path d="M4.5 17v1.5A1.5 1.5 0 0 0 6 20h12a1.5 1.5 0 0 0 1.5-1.5V17"/></svg>
+    Download
+  </button>
+  <button class="btn btn-secondary btn-sm" data-action="print">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8.5V4.5h10v4"/><rect x="4.5" y="8.5" width="15" height="7.5" rx="1.2"/><path d="M7 14.5h10v5H7z"/></svg>
+    Print
+  </button>
+  <button class="btn btn-secondary btn-sm" data-action="regenerate">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12a7 7 0 1 1-2.1-5"/><path d="M19 5v4.5h-4.5"/></svg>
+    Generate Again
+  </button>
+  <button class="btn btn-ghost btn-sm" data-action="back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 12H6M10.5 7 6 12l4.5 5"/></svg>
+    Back to Study Options
+  </button>
+</template>
+
+<script src="script.js"></script>
+</body>
+</html>
